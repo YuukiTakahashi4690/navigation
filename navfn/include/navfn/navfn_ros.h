@@ -42,6 +42,7 @@
 #include <costmap_2d/costmap_2d.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Point.h>
+#include <geometry_msgs/Twist.h>
 #include <nav_msgs/Path.h>
 #include <vector>
 #include <nav_core/base_global_planner.h>
@@ -161,7 +162,7 @@ namespace navfn {
        */
       void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path, double r, double g, double b, double a);
 
-      static void topicCallback(const nav_msgs::Path::ConstPtr& topic_msg);
+      static void topicCallback(const geometry_msgs::Twist::ConstPtr& topic_msg);
 
       void topicSubscribe(int argc, char **argv);
 
@@ -178,6 +179,7 @@ namespace navfn {
       boost::shared_ptr<NavFn> planner_;
       ros::Publisher plan_pub_;
       ros::Publisher potarr_pub_;
+      ros::Subscriber topic_msg_sub_;
       bool initialized_, allow_unknown_, visualize_potential_;
 
 

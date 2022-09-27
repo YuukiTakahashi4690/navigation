@@ -162,7 +162,7 @@ namespace navfn {
        */
       void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path, double r, double g, double b, double a);
 
-      static void topicCallback(const geometry_msgs::Twist::ConstPtr& topic_msg);
+      static void topicCallback(const nav_msgs::Path::ConstPtr& topic_msg);
 
       void topicSubscribe(int argc, char **argv);
 

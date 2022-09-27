@@ -82,14 +82,14 @@ namespace navfn {
       initialize(name, costmap, global_frame);
   }
 
-  void NavfnROS::topicCallback(const geometry_msgs::Twist::ConstPtr& topic_msg){
+  void NavfnROS::topicCallback(const nav_msgs::Path::ConstPtr& topic_msg){
     ROS_INFO("hogehohe");
   }
 
   void NavfnROS::topicSubscribe(int argc, char **argv){
     ros::init(argc, argv, "listener");
     ros::NodeHandle nh;
-    ros::Subscriber sub = nh.subscribe("cmd_vel", 10, topicCallback);
+    ros::Subscriber sub = nh.subscribe("path", 10, topicCallback);
     ros::spin();
 
     return;
